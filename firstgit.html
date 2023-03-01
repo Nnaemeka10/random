@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      position: relative;
+    }
+
+    h1 {
+      position: absolute;
+      margin: 0;
+      width: 110px;
+      height: 50px;
+      background-color: red;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>hello!!!!</h1>
+  </div>
+
+  <script>
+	let ada
+	let speed=40
+	const h1 = document.querySelector('h1');
+	h1.addEventListener('click', clar)
+
+	function clar(){
+		clearInterval(ada)
+		
+	}
+
+    function animateText() {
+      let x = 0;
+      let y = 0;
+      let dx = 5;
+      let dy = 0;
+      const maxHeight = 300 - h1.offsetHeight;
+
+      ada=setInterval(() => {
+        x += dx;
+        y += dy;
+
+        if (x >= 250 - h1.offsetWidth && y === 0) {
+          dx = 0;
+          dy = 5;
+        } else if (x === 250 - h1.offsetWidth && y >= maxHeight) {
+          dx = -5;
+          dy = 0;
+        } else if (x <= 0 && y === maxHeight) {
+          dx = 0;
+          dy = -5;
+        } else if (x === 0 && y <= 0) {
+          dx = 5;
+          dy = 0;
+        }
+
+        h1.style.transform = `translate(${x}px, ${y}px)`;
+      }, speed);
+    }
+
+    animateText();
+  </script>
+</body>
+</html>
