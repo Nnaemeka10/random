@@ -1,2 +1,2 @@
 # MY FIRST GITHUB CODE
-just a random code to run on your web browser
+Just a random code to run on your web browser
